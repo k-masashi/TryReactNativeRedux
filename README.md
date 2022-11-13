@@ -1,4 +1,4 @@
-# TryReactNativeRedux
+# try-react-native-redux
 
 ## 目的
 
