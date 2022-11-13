@@ -14,13 +14,11 @@ export const counterReducer = (
 ): CounterState => {
   switch (action.type) {
     case CounterActionType.INCREMENT_COUNT:
-      console.log('dispatch!!!');
       return {
         ...state,
         count: state.count + 1,
       };
     case CounterActionType.CLEAR_COUNT:
-      console.log('dispatch22!!!');
       return {
         ...state,
         count: 0,
