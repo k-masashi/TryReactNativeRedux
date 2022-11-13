@@ -1,5 +1,5 @@
 import {Dispatch} from 'redux';
-import {clearCount, CounterAction, incrementCount} from '../actions/Counter';
+import {clearCount, CounterAction, incrementCount} from '../actions/counter';
 import {Counter, CounterProps} from '../components/Counter';
 import {AppState} from '../reducers/appReducer';
 import {connect} from 'react-redux';
