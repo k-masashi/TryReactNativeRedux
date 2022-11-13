@@ -7,6 +7,19 @@ export const Counter = () => {
   const count = useSelector<AppState, number>(state => state.counter.count);
   const dispatch = useDispatch();
 
+  // 非同期処理テスト用
+  const incrementCountAsync = () => {
+    setTimeout(() => {
+      dispatch(incrementCount());
+    }, 1000);
+  }
+
+  const clearCountAsync = () => {
+    setTimeout(() => {
+      dispatch(clearCount());
+    }, 1000);
+  }
+
   return (
     <>
       <View style={styles.container}>
@@ -15,13 +28,13 @@ export const Counter = () => {
           <Button
             title="Increment"
             onPress={() => {
-              dispatch(incrementCount());
+              incrementCountAsync();
             }}
           />
           <Button
             title="Clear"
             onPress={() => {
-              dispatch(clearCount());
+              clearCountAsync();
             }}
           />
         </View>
