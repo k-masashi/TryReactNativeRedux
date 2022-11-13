@@ -1,16 +1,12 @@
 import {Button, StyleSheet, Text, View} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {AppState} from '../reducers/appReducer';
+import {incrementCount, clearCount} from '../modules/counterSlice';
 
-export interface CounterProps {
-  count: number;
-  incrementCount?: () => void;
-  clearCount?: () => void;
-}
+export const Counter = () => {
+  const count = useSelector<AppState, number>(state => state.counter.count);
+  const dispatch = useDispatch();
 
-export const Counter: React.FC<CounterProps> = ({
-  count,
-  incrementCount,
-  clearCount,
-}) => {
   return (
     <>
       <View style={styles.container}>
@@ -19,13 +15,13 @@ export const Counter: React.FC<CounterProps> = ({
           <Button
             title="Increment"
             onPress={() => {
-              if (incrementCount) incrementCount();
+              dispatch(incrementCount());
             }}
           />
           <Button
             title="Clear"
             onPress={() => {
-              if (clearCount) clearCount();
+              dispatch(clearCount());
             }}
           />
         </View>
