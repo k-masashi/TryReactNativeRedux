@@ -6,22 +6,26 @@ export interface CounterProps {
   clearCount?: () => void;
 }
 
-export const Counter: React.FC<CounterProps> = (props: CounterProps) => {
+export const Counter: React.FC<CounterProps> = ({
+  count,
+  incrementCount,
+  clearCount,
+}) => {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.countText}>{props.count || 0}</Text>
+        <Text style={styles.countText}>{count || 0}</Text>
         <View style={styles.buttons}>
           <Button
             title="Increment"
             onPress={() => {
-              if (props.incrementCount) props.incrementCount;
+              if (incrementCount) incrementCount();
             }}
           />
           <Button
             title="Clear"
             onPress={() => {
-              if (props.clearCount) props.clearCount;
+              if (clearCount) clearCount();
             }}
           />
         </View>
